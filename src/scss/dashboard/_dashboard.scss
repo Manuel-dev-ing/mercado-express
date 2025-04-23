@@ -1,0 +1,30 @@
+
+.dashboard{
+
+    background-color: #f6f9ff;
+    height: 100vh;
+
+}
+
+.contenido{
+    padding: 2rem 3rem;
+    margin-top: 5rem;
+    height: 100%;
+    
+    @media(min-width: 768px){
+        margin-top: 6rem;
+        margin-left: 30rem;
+        padding: 2rem 3rem;
+    }
+
+}
+
+.nombre-pagina{
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: #023b6d;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+

@@ -1,0 +1,50 @@
+/** Media Queries **/
+@mixin telefonoS {
+    @media (min-width: #{$telefonoS}) {
+        @content;
+    }
+}
+@mixin telefonoM {
+    @media (min-width: #{$telefonoM}) {
+        @content;
+    }
+}
+@mixin telefonoL {
+    @media (min-width: #{$telefonoL}) {
+        @content;
+    }
+}
+@mixin telefono {
+    @media (min-width: #{$telefono}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: #{$tablet}) {
+        @content;
+    }
+}
+  
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+        @content;
+    }
+}
+
+@mixin desktopXL {
+    @media (min-width: #{$desktopXl}) {
+        @content;
+    }
+}
+@mixin desktopXXL {
+    @media (min-width: #{$desktopXXl}) {
+        @content;
+    }
+}
+
+@mixin grid($columnas, $espaciado ) {
+    display: grid;
+    gap: $espaciado;
+    grid-template-columns: repeat($columnas, 1fr);
+}

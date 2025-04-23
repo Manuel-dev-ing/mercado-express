@@ -1,0 +1,1 @@
+const alerta=document.querySelector(".alerta");alerta&&setTimeout((()=>{alerta.remove()}),3e3);

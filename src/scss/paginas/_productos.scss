@@ -1,0 +1,106 @@
+// pagina crear productos
+
+//imagen
+.rounded-circle{
+    max-width: 80%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+
+//Seccion Informacion Adicional
+
+
+//div informacion adicional
+.contenedor-informacion-adicional{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+
+.div-informacionAdicional{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+.btn-agregar-informacion{
+
+    width: 10rem;
+    text-align: center;
+
+}
+
+.informacion-adicional{
+    margin: .3rem 0;
+    font-size: 1.5rem;
+    color: #023b6d;
+    font-weight: 600;
+}
+
+.forms-fields-md-informacion-adicional{
+    display: flex;
+    margin-bottom: 1rem;
+    align-items: center;
+    flex-direction: column;
+    align-items: stretch;
+    width: 70%;
+    
+    input{
+        padding: 1rem;
+        border-radius: .6rem;
+        border: 1px solid #bfbfbf;
+        
+        &:focus{
+            border: 2px solid #2968c8;
+            outline: none;
+        }
+    }
+}
+
+.forms-fields-md_btn-agragar{
+        display: flex;
+        margin-bottom: 1rem;
+        flex-direction: row;
+        align-items: stretch;
+        width: 20%;
+        justify-content: flex-end;
+    input{
+        padding: 1rem;
+        border-radius: .6rem;
+        border: 1px solid #bfbfbf;
+        
+        &:focus{
+            border: 2px solid #2968c8;
+            outline: none;
+        }
+    }
+}
+//estilos para la seccion informacion adicional
+.div-eliminar{
+    display: flex;
+    height: 8rem;
+    align-items: center;
+}
+
+.btn-eliminar-input{
+
+    color: #df4747;
+
+    &:hover{
+        cursor: pointer;
+        color: #c90a0a;
+    }
+    
+}
+
+
+
+

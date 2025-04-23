@@ -1,0 +1,1 @@
+!function(){var t;t=JSON.parse(localStorage.getItem("productos"))||[],document.querySelector("#badge-cantidad").textContent=t.length}();

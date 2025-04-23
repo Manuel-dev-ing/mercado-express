@@ -1,0 +1,31 @@
+
+@use 'base/variables' as v;
+
+
+
+
+.alerta{
+
+    padding: .3rem;
+    color: v.$blanco;
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+
+    &.error{
+        background-color: v.$rojo;
+    } 
+    
+    &.exito{
+        background-color: v.$verde;
+    }
+
+
+}
+
+
+
+

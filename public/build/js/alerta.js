@@ -1,0 +1,1 @@
+function Eliminaralerta(){document.querySelectorAll(".alerta").forEach((e=>{e&&setTimeout((()=>{e.remove()}),5e3)}))}Eliminaralerta();

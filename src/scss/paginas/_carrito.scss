@@ -1,0 +1,229 @@
+html, body {
+    height: 100vh;
+}
+
+.body-carrito{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.container{
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    padding-bottom: 60px;
+    margin-top: 4rem;
+
+    .card-list__titulo{
+        border-bottom: 1px solid rgb(216, 216, 216);
+        padding: .7rem 1.5rem;
+
+        h4{
+            font-size: 1.7rem;
+        }
+    }
+
+    .card-list{
+        border-radius: 6px;
+        background-color: white;
+        width: 70%;
+        box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.40);
+        padding: 1rem;
+        min-width: 808px;
+
+
+        .card-list__item{
+            // display: grid;
+            // grid-template-columns: 10% 60% 15% 10%;
+            // align-items: center;
+            gap: 1rem;
+            border-bottom: 1px solid #d8d8d8;
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+
+            .item-imagen{
+
+                .imagen-portada{
+                    height: 72px;
+                    width: 72px;
+                }
+
+            }
+
+            .item-descripcion{
+                
+                p{
+                    margin: 0;
+                    // white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    font-size: 1.3rem;
+                    padding: 5px;
+                }
+
+                .item-acciones{
+                    display: flex;
+                    justify-content: flex-start;
+                    font-size: 1.2rem;
+                    
+                    a{
+                        margin-right: 1.5rem;
+                    }
+
+                    @media(min-width: 320px){
+                        display: flex;
+                        justify-content: center;
+                    }
+
+                }
+            }
+
+            .item-cantidad{
+                
+                width: 9rem;
+
+                .item-cantidad_container{
+                    width: 100%;
+                    border: 1px solid #b3b3b3;
+                    display: flex;
+                    justify-content: space-between;
+                    padding: .1rem;
+                    border-radius: 5px;
+
+                    button{
+                        background-color: white;
+                        border: none;
+                        font-size: 2.5rem;
+                        cursor: pointer;
+                        color: #679fff;
+                        font-weight: 600;
+
+
+                    }
+                    &:hover{
+                            
+                        border: 1px solid #4287fa;
+                    }
+                    
+                }
+
+
+            }
+
+            @media(min-width: 320px){
+                display: flex;
+                flex-direction: column;
+            }
+
+            @media(min-width: 768px){
+                display: flex;
+                flex-direction: row;
+            }
+
+        }
+
+        @media(min-width: 320px){
+            min-width: 320px;
+
+        }
+
+    }
+
+    .card-resumen{
+        background-color: white;
+        width: 30%;
+        box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.40);
+        border-radius: 6px;
+        height: fit-content;
+        position: sticky;
+        padding: 0rem 1.5rem;
+        min-width: 360px;
+
+        .card-resumen__titulo{
+            border-bottom: 1px solid rgb(216, 216, 216);
+            padding: .7rem 0rem;
+            h4{
+                font-size: 1.7rem ;
+            }
+        }
+
+        .card-resumen_cantidad-productos{
+            display: flex;
+            justify-content: space-between;
+            
+            .producto-subtotal{
+                font-size: 1.3rem;
+            }
+            .producto-precio{
+                font-size: 1.3rem;
+            }
+        }
+
+        .card-resumen_total{
+            display: flex;
+            justify-content: space-between;
+        }
+        .btn{
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            height: 48px;
+            line-height: 48px;
+            padding: 0px 24px;
+            text-align: center;
+            -webkit-font-smoothing: antialiased;
+            display: block;
+            margin-bottom: 10px;
+            
+        }
+        .btn-primary{
+            background-color: #3483fa;
+            border-color: transparent;
+            color: #fff;
+            cursor: pointer;
+
+            &:hover{
+                background-color: #2e6fcf;
+
+            }
+        }
+
+        .btn-primary:disabled{
+            background-color: #77a5eb;
+            color: linen;
+            opacity: 1;
+        }
+
+        @media(min-width: 320px){
+            min-width: 304px;
+        }
+
+    }
+
+    @media(min-width: 320px){
+        display: flex;
+        flex-direction: column;
+    }
+
+    @media(min-width: 768px){
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+}
+
+.border{
+    border: 1px solid rgb(214, 115, 115);
+}
+
+
+
+
