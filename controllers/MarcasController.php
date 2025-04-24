@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Classes\Paginacion;
 use Model\Marcas;
 use MVC\Router;
 
@@ -9,15 +10,35 @@ class MarcasController
 {
     public static function index(Router $router){
         
-        $marcas = Marcas::all();  
+        $pagina_actual = $_GET['page'];
+        $pagina_actual = filter_var($pagina_actual, FILTER_VALIDATE_INT);
+        
+        if (!$pagina_actual || $pagina_actual < 1) {
+            header('Location: /dashboard/marcas?page=1');
+        }
+
+        $registros_por_pagina = 5;
+
+        $total_registros = Marcas::total();
+        
+        $paginacion = new Paginacion($pagina_actual, $registros_por_pagina, $total_registros);
+
+        $marcas = Marcas::paginar($registros_por_pagina, $paginacion->offset());
+
+        // $marcas = Marcas::all();  
         $resultado = $_GET['resultado'] ?? null;
+
+        if ($paginacion->total_paginas() < $pagina_actual) {
+            header('Location: /dashboard/narcas?page=1');
+        }
 
         // titulo de la pagina
         $titulo = 'Marcas';
         $router->render('marcas/index', [
             'titulo'=>$titulo,
             'marcas'=>$marcas,
-            'resultado'=>$resultado
+            'resultado'=>$resultado,
+            'paginacion'=>$paginacion->paginacion()
         ]);
     }    
 

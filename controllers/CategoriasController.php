@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Classes\Paginacion;
 use Model\Categorias;
 use Model\ProductosInformacion;
 use MVC\Router;
@@ -11,17 +12,35 @@ class CategoriasController
     
     public static function index(Router $router){
         
-        $categorias = Categorias::all();
+        $pagina_actual = $_GET['page'];
+        $pagina_actual = filter_var($pagina_actual, FILTER_VALIDATE_INT);
+        
+        if (!$pagina_actual || $pagina_actual < 1) {
+            header('Location: /dashboard/categorias?page=1');
+        }
+
+        $registros_por_pagina = 5;
+
+        $total_registros = Categorias::total();
+        
+        $paginacion = new Paginacion($pagina_actual, $registros_por_pagina, $total_registros);
+
+        $categorias = Categorias::paginar($registros_por_pagina, $paginacion->offset());
+
+        // $categorias = Categorias::all();
         
         $resultado = $_GET['resultado'] ?? null;
-      
+        if ($paginacion->total_paginas() < $pagina_actual) {
+            header('Location: /dashboard/categorias?page=1');
+        }
         // titulo de la pagina
         $titulo = 'Categorias';
         
         $router->render('/categorias/index', [
             'categorias' => $categorias,
             'titulo'=> $titulo,
-            'resultado'=>$resultado
+            'resultado'=>$resultado,
+            'paginacion'=>$paginacion->paginacion()
         
         ]);
     }

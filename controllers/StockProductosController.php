@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Classes\Paginacion;
 use Model\Productos;
 use Model\ProductosInformacion;
 use Model\StockProductos;
@@ -10,21 +11,42 @@ use MVC\Router;
 class StockProductosController
 {
     public static function index(Router $router){
+        $pagina_actual = $_GET['page'];
+        $pagina_actual = filter_var($pagina_actual, FILTER_VALIDATE_INT);
+        
+        if (!$pagina_actual || $pagina_actual < 1) {
+            header('Location: /dashboard/stock?page=1');
+        }
 
-        $stock = StockProductos::all();
+        $registros_por_pagina = 5;
+
+        $total_registros = StockProductos::total();
+        
+        $paginacion = new Paginacion($pagina_actual, $registros_por_pagina, $total_registros);
+
+        $stock = StockProductos::paginar($registros_por_pagina, $paginacion->offset());
+
+
+        // $stock = StockProductos::all();
         $resultado = $_GET['resultado'] ?? null;
 
         foreach ($stock as $stocks) {
             $stocks->producto = Productos::find($stocks->id_producto);        
 
         }
+
+        if ($paginacion->total_paginas() < $pagina_actual) {
+            header('Location: /dashboard/stock?page=1');
+        }
+
         // debuguear($stock);
 
         $titulo = "Stock Productos";
         $router->render('productosStock/index', [
             'titulo'=>$titulo,
             'stock'=>$stock,
-            'resultado'=>$resultado
+            'resultado'=>$resultado,
+            'paginacion'=>$paginacion->paginacion()
         ]);
 
     }

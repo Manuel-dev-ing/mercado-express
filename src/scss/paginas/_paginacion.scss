@@ -1,0 +1,46 @@
+.paginacion{
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    @media(min-width: 768px){
+       justify-content: flex-end;
+    }
+
+    &__enlace{
+        color: #007df4;
+        font-size: 1.2rem;
+    
+        &--texto{
+            padding: .5rem;
+            border-radius: .5rem;
+            border: 1px solid #007df4;
+
+            &:hover{
+                background-color: #007df4;
+                color: white;
+            }
+        }
+
+        &--numero{
+            font-weight: bold;
+            display: none;
+            @media(min-width: 768px){
+                display: inline;
+            }
+        }
+        &--actual{
+            color:#64748B;;
+            font-weight: bold;
+            display: none;
+            @media(min-width: 768px){
+                display: inline;
+            }
+        }
+    }
+
+}

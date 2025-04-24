@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Classes\Paginacion;
 use InternalIterator;
 use Model\Categorias;
 use Model\InformacionAdicional;
@@ -13,23 +14,40 @@ class ProductosController
 {
 
     public static function Index(Router $router){
-
+        $pagina_actual = $_GET['page'];
+        $pagina_actual = filter_var($pagina_actual, FILTER_VALIDATE_INT);
         
+        if (!$pagina_actual || $pagina_actual < 1) {
+            header('Location: /dashboard/productos?page=1');
+        }
 
-        $productos = Productos::all();
+        $registros_por_pagina = 5;
+
+        $total_registros = Productos::total();
+        
+        $paginacion = new Paginacion($pagina_actual, $registros_por_pagina, $total_registros);
+
+        $productos = Productos::paginar($registros_por_pagina, $paginacion->offset());
+        
+        // debuguear($productos);
         $resultado = $_GET['resultado'] ?? null;
     
         foreach ($productos as $producto) {
             $producto->categoria = Categorias::find($producto->id_categoria);
             $producto->marca = Marcas::find($producto->id_marca);
-        }    
+        }  
+        
+        if ($paginacion->total_paginas() < $pagina_actual) {
+            header('Location: /dashboard/productos?page=1');
+        }
         // debuguear($productos);
 
         $titulo = "Productos";
         $router->render('productos/index', [
             'productos'=> $productos,
             'resultado'=>$resultado,
-            'titulo'=>$titulo
+            'titulo'=>$titulo,
+            'paginacion'=>$paginacion->paginacion()
 
         ]);
     }

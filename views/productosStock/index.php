@@ -39,6 +39,9 @@
     </tbody>
 </table>
 
+<?php echo $paginacion; ?>
+
+
 <?php include_once __DIR__ . '/../dashboard/footer-dashboard.php'; ?>
 
 <?php 
