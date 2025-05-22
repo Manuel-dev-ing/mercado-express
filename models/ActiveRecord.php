@@ -247,10 +247,24 @@ class ActiveRecord {
         
         return array_shift($total);
     }
+    public static function totalByColumn($columna, $valor){
+        $query = "SELECT COUNT(*) FROM "  . static::$tabla . " WHERE {$columna} = '{$valor}'";
+        $resultado = self::$db->query($query);
+        $total = $resultado->fetch_array();
+        
+        return array_shift($total);
+    }
     
       // Paginar registros
       public static function paginar($por_pagina, $offset) {
         $query = "SELECT * FROM " . static::$tabla . " ORDER BY id DESC LIMIT ${por_pagina} OFFSET ${offset}";
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
+
+      // Paginar registros por columna
+    public static function paginarPorColumna($por_pagina, $offset, $columna, $valor) {
+        $query = "SELECT * FROM " . static::$tabla . " WHERE {$columna} = '{$valor}' ORDER BY id DESC LIMIT ${por_pagina} OFFSET ${offset}";
         $resultado = self::consultarSQL($query);
         return $resultado;
     }

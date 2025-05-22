@@ -19,6 +19,7 @@
             padding: .5rem;
             border-radius: .5rem;
             border: 1px solid #007df4;
+            cursor: pointer;
 
             &:hover{
                 background-color: #007df4;
@@ -29,8 +30,10 @@
         &--numero{
             font-weight: bold;
             display: none;
+            cursor: pointer;
             @media(min-width: 768px){
                 display: inline;
+                
             }
         }
         &--actual{

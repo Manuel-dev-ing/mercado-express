@@ -321,140 +321,193 @@ main{
         // background-color: #ffffff;
         padding: 1.5rem;
         max-width: 1215px;
-        width: 100%;
         margin-left: auto;
         margin-right: auto;
         display: flex;
         gap: 5rem;
 
         .sidebar-filtros{
-            flex: 1 1;
+            // flex: 1 1;
             max-width: 294px;
             min-width: 210px;
-            width: 100%;
+            // width: 100%;
             background-color: #ffffff;
             box-shadow: -2px 20px 11px -26px rgba(0, 0, 0, .66);
             padding: 1.5rem;
-        }
-        .secction-container{
-            display: flex;
-            flex-direction: column;
 
-        }
+            //filltro Marcas
+            .marcas{
+                .contenedor-marca{
+                    display: flex;
+                    justify-content: flex-start;
+                    gap: 1rem;
 
-        .secction_resultados{
-            width: 885px;
-            background-color: #ffffff;
-            // box-shadow: -2px 20px 11px -26px rgba(0, 0, 0, .66);
-            padding: 1.5rem;
-            margin-bottom: 5px;
+                    .label-filter{
+                        color: #424242;
+                        font-size: 1.5rem;
+                    }
+                }
+            }
 
-            .secction_producto{
+            //Filtro precios
+            .precios-filtros{
+                margin-top: 7px;
                 display: flex;
-                
-                .card_producto-portada{
-                    height: 196px;
-                    max-height: 196px;
-                    max-width: 196px;
-                    width: 196px;
-                    margin-right: 5rem;
-                }
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
 
-                .line{
-                    text-decoration: line-through;
-                    margin: 0;
-                    font-size: 1.1rem;
-                    font-weight: 500;
-    
+                .input-minimo{
+                    width: 6.5rem;
+                    border-radius: 6px;
+                    border: 1px solid #b2b2b2;
+                    padding: 7px;
+                    font-size: 12px;
                 }
-    
-                span{
-                    font-size: 1.1rem;
-                    color: #4aae62;
-                    font-weight: 600;
+                .input-maximo{
+                    width: 6.5rem;
+                    border-radius: 6px;
+                    border: 1px solid #b2b2b2;
+                    padding: 7px;
+                    font-size: 12px;
+
                 }
-                .card_producto-informacion{
-                    .link-nombre-producto{
-                        font-size: 1.8rem;
-                        font-weight: 400;
-                        margin: 5px 0 0 0;
-                        color: black;
+            }
+
+            .alerta-error-precio{
+                // display: none;
+                font-size: 11px;
+                color: #ff2525;
+                
+                
+            }
+
+        }
+
+        .resultados{
+            width: 100%;
+            .secction-container{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+            }
+    
+            .secction_resultados{
+                width: 885px;
+                background-color: #ffffff;
+                // box-shadow: -2px 20px 11px -26px rgba(0, 0, 0, .66);
+                padding: 1.5rem;
+                margin-bottom: 5px;
+    
+                .secction_producto{
+                    display: flex;
+                    
+                    .card_producto-portada{
+                        height: 196px;
+                        max-height: 196px;
+                        max-width: 196px;
+                        width: 196px;
+                        margin-right: 5rem;
                     }
-                }
-                .producto-informacion_contenido{
-                    .producto-precio{
-                        font-size: 1.7rem;
-                        font-weight: 500;
+    
+                    .line{
+                        text-decoration: line-through;
                         margin: 0;
-                        span{
-                            font-size: 1.1rem;
-                            color: #4aae62;
-                            font-weight: 600;
-                            margin-left: 5px;
-                        } 
-                       
-                    }
-                    .producto-mesesintereses{
-                        font-size: 1.2rem;
+                        font-size: 1.1rem;
                         font-weight: 500;
-                        margin: 0;
-                        margin-top: 10px;
-    
-                       
+        
                     }
-                    .producto-promocion{
-                        font-size: 1.2rem;
-                        font-weight: 500;
-                        margin-top: 10px;
-    
-                        span{
-                            font-size: 1.1rem;
-                            color: #4aae62;
-                            background-color: #e7f5ed;
-                            font-weight: 600;
-                            padding: 5px;
+        
+                    span{
+                        font-size: 1.1rem;
+                        color: #4aae62;
+                        font-weight: 600;
+                    }
+                    .card_producto-informacion{
+                        width: 100%;
+                        .link-nombre-producto{
+                            font-size: 1.8rem;
+                            font-weight: 400;
+                            margin: 5px 0 0 0;
+                            color: black;
                         }
                     }
-                }
-
-                @media(min-width: 320px){
-                
-                    display: flex;
-                    flex-direction: column;
-                
-                }
-
-                @media(min-width: 768px){
-                
-                    display: flex;
-                    flex-direction: column;
-                
-                }
-                @media(min-width: 1024px){
-                
-                    display: flex;
-                    flex-direction: row;
-                
-                }
-
-            }
-
-            @media(min-width: 320px){
-
-                width: 286px;
-    
-            }
-
-            @media(min-width: 768px){
-
-                width: 100%;
-    
-            }
-
-
-
-        }
+                    .producto-informacion_contenido{
+                        .producto-precio{
+                            font-size: 1.7rem;
+                            font-weight: 500;
+                            margin: 0;
+                            span{
+                                font-size: 1.1rem;
+                                color: #4aae62;
+                                font-weight: 600;
+                                margin-left: 5px;
+                            } 
+                           
+                        }
+                        .producto-mesesintereses{
+                            font-size: 1.2rem;
+                            font-weight: 500;
+                            margin: 0;
+                            margin-top: 10px;
         
+                           
+                        }
+                        .producto-promocion{
+                            font-size: 1.2rem;
+                            font-weight: 500;
+                            margin-top: 10px;
+        
+                            span{
+                                font-size: 1.1rem;
+                                color: #4aae62;
+                                background-color: #e7f5ed;
+                                font-weight: 600;
+                                padding: 5px;
+                            }
+                        }
+                    }
+    
+                    @media(min-width: 320px){
+                    
+                        display: flex;
+                        flex-direction: column;
+                    
+                    }
+    
+                    @media(min-width: 768px){
+                    
+                        display: flex;
+                        flex-direction: column;
+                    
+                    }
+                    @media(min-width: 1024px){
+                    
+                        display: flex;
+                        flex-direction: row;
+                    
+                    }
+    
+                }
+    
+                @media(min-width: 320px){
+    
+                    width: 286px;
+        
+                }
+    
+                @media(min-width: 768px){
+    
+                    width: 100%;
+        
+                }
+    
+    
+    
+            }
+            
+        }
+      
         @media(min-width: 320px){
 
             display: flex;
@@ -468,10 +521,22 @@ main{
             justify-content: space-between;
 
         }
-       
-
 
     }
+
+    // Precio
+    .label-filter{
+        color: #727272;
+        font-size: 1.5rem;
+        margin: 0;
+        display: block;
+
+        &:hover{
+            cursor: pointer;
+            color: #616161;
+        }
+    }
+
 }
 
 

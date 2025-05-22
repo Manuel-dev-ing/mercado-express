@@ -126,7 +126,7 @@ class ProductosController
             'categorias'=>$categorias,
             'productos'=>$productos,
             'alertas'=>$alertas
-        ]);
+        ]);https://www.mercadolibre.com.mx/c/electronica-audio-y-video#DEAL_ID=MLM&S=MKT&V=6&T=MS&L=MKTPLACE_HE_TVYAUD_PPSREGALERIA
     }
 
     public static function actualizar(Router $router){
@@ -255,6 +255,21 @@ class ProductosController
 
      //vista listado de productos 
     public static function mostrarProductos(Router $router){
+        // $pagina_actual = $_GET['page'];
+        // $id_marca = $_GET['resultado'];
+
+        // $pagina_actual = filter_var($pagina_actual, FILTER_VALIDATE_INT);
+        
+        // if (!$pagina_actual || $pagina_actual < 1) {
+        //     header('Location: /productos/mostrarProductos?resultado=2&page=1');
+        // }
+        // $registros_por_pagina = 5;
+
+        // $total_registros = Productos::totalByColumn('id_categoria', $id_marca);
+        // debuguear($total_registros);
+
+        // $paginacion = new Paginacion($pagina_actual, $registros_por_pagina, $total_registros);
+
 
         // debuguear($productos);
         $titulo = "Resultados Productos";

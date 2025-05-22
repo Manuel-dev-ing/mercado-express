@@ -21,7 +21,7 @@
 
     <?php echo $contenido; ?>
 
-
+    
     <?php 
         echo $script ?? '';
     ?>

@@ -2,10 +2,12 @@
 
 namespace Controllers;
 
+use Classes\Paginacion;
 use Model\Categorias;
 use Model\DetallePedido;
 use Model\InformacionAdicional;
 use Model\Marcas;
+use Model\MarcasCategorias;
 use Model\Pedidos;
 use Model\Productos;
 use Model\ProductosInformacion;
@@ -51,13 +53,32 @@ class ApiController
     public static function obtenerResultadosBusqueda(){
 
         $id = $_POST['id'];
+        $pagina_actual = $_POST['pagina'];
         $resultadoId = filter_var(intval($id), FILTER_VALIDATE_INT);
         
-        $productos = Productos::whereAll('id_categoria', $resultadoId);
-        // debuguear($productos);
+        //paginacion
+        $registros_por_pagina = 5;
+        $total_registros = Productos::totalByColumn('id_categoria', $resultadoId);
+        $paginacion = new Paginacion($pagina_actual, $registros_por_pagina, $total_registros);
+
+
+        $productos = Productos::paginarPorColumna($registros_por_pagina, $paginacion->offset(), 'id_categoria', $resultadoId);
+
+        // obtener las marcas por categoria
+        $marcas = MarcasCategorias::whereAll('id_categoria', $resultadoId);
+
+        $arrayMarcas = [];
+        foreach ($marcas as $marca) {
+            $resultado = Marcas::find($marca->id_marca);
+            array_push($arrayMarcas, $resultado);
+        }
 
         $respuesta = [
-            'datos'=> $productos
+            'datos'=> $productos,
+            'marcas' => $arrayMarcas,
+            'total_paginas' => $paginacion->total_paginas(),
+            'pagina_siguiente' => $paginacion->pagina_siguiente(),
+            'pagina_anterior' => $paginacion->pagina_anterior()
         ];
 
         echo json_encode($respuesta);

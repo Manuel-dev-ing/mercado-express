@@ -24,8 +24,6 @@
             <td><?php echo $producto->marca->nombre; ?></td>
             <td><?php echo $producto->categoria->nombre; ?></td>
             <td><?php echo $producto->precio; ?></td>
-            
-            
             <td>
                 <div class="tabla-acciones">
                     <form action="/productos/eliminar" method="post">

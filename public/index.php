@@ -103,6 +103,5 @@ $router->post('/api/obtenerProductoPorId', [ApiController::class, 'obtenerProduc
 //-Pedidos
 $router->post('/api/guardarPedido', [ApiController::class, 'guardarPedido']);
 
-
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
 $router->comprobarRutas();
