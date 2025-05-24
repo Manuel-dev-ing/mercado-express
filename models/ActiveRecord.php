@@ -247,6 +247,16 @@ class ActiveRecord {
         
         return array_shift($total);
     }
+    public static function sumar_precio($columna){
+        $query = "SELECT SUM($columna) FROM "  . static::$tabla;
+        $resultado = self::$db->query($query);
+        $total = $resultado->fetch_array();
+        
+        return array_shift($total);
+    }
+
+
+
     public static function totalByColumn($columna, $valor){
         $query = "SELECT COUNT(*) FROM "  . static::$tabla . " WHERE {$columna} = '{$valor}'";
         $resultado = self::$db->query($query);
@@ -254,9 +264,15 @@ class ActiveRecord {
         
         return array_shift($total);
     }
+
+    public static function ordenarLimite($columna, $orden, $limite) {
+        $query = "SELECT * FROM " . static::$tabla . " ORDER BY ${columna} ${orden} LIMIT ${limite}";
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
     
-      // Paginar registros
-      public static function paginar($por_pagina, $offset) {
+    // Paginar registros
+    public static function paginar($por_pagina, $offset) {
         $query = "SELECT * FROM " . static::$tabla . " ORDER BY id DESC LIMIT ${por_pagina} OFFSET ${offset}";
         $resultado = self::consultarSQL($query);
         return $resultado;

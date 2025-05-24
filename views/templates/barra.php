@@ -1,5 +1,5 @@
 <div class="barra-mobile">
-    <a href="/dashboard">TiendaVirtual</a>
+    <a href="/dashboard">MercadoExpress</a>
 
     <div class="menu">
         <img id="mobile-menu" src="/build/img/menu.svg" alt="imagen menu">
@@ -9,7 +9,7 @@
 
 
 <div class="barra">
-    <a href="/dashboard">TiendaVirtual</a>
+    <a href="/dashboard">MercadoExpress</a>
     <?php
         
         session_start();

@@ -2,6 +2,10 @@
 
 namespace Controllers;
 
+use Model\DetallePedido;
+use Model\Pedidos;
+use Model\Productos;
+use Model\StockProductos;
 use MVC\Router;
 
 
@@ -9,11 +13,24 @@ class DashboardController
 {
     public static function index(Router $router){
         
+        $total_pedidos = Pedidos::total();
+        $total_ingresos =  number_format(DetallePedido::sumar_precio('precio')) ;
+
+        $top_productos = StockProductos::ordenarLimite('stock', 'ASC', 5);
+        foreach ($top_productos as $item) {
+            $item->producto = Productos::find($item->id_producto);
+        }
+
+        // debuguear($top_productos);
+
         // titulo de la pagina
         $titulo = 'Dashboard';
 
         $router->render('dashboard/index', [
-            'titulo'=> $titulo
+            'titulo'=> $titulo,
+            'total_pedidos'=>$total_pedidos,
+            'total_ingresos'=>$total_ingresos,
+            'top_productos'=>$top_productos
         ]);
 
     }
