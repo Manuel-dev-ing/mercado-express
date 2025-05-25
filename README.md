@@ -84,3 +84,35 @@ Sigue estos pasos para ejecutar Mercado Express en tu entorno local:
 ```bash
 git clone https://github.com/tu-usuario/mercado-express.git
 ```
+Luego, copia la carpeta del proyecto dentro del directorio de tu servidor local:
+
+- Para XAMPP: C:/xampp/htdocs/
+
+- Para Laragon: C:/laragon/www/
+  
+### 3. Crear la base de datos
+- Abre phpMyAdmin o cualquier cliente MySQL.
+
+- Crea una base de datos, por ejemplo: mercado_express.
+
+- Importa el archivo .sql que viene con el proyecto.
+
+### 4. Configurar la conexión a la base de datos
+Edita el archivo de configuración de la base de datos
+```
+  'host' => 'localhost',
+  'user' => 'root',
+  'password' => '',
+  'database' => 'mercado_express'
+```
+### 5. Iniciar el servidor local
+Abre tu servidor (XAMPP o Laragon), inicia Apache y MySQL.
+
+## Licencia
+
+Mercado-Express es [MIT licensed](./LICENSE).
+
+## Contacto
+**Nombre:** Manuel Tamayo Montero.
+
+**Correo:** manueltamayo9765@gmail.com
